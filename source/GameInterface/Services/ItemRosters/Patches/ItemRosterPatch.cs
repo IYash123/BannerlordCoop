@@ -2,6 +2,7 @@
 using Common.Util;
 using GameInterface.Services.ItemRosters.Messages;
 using HarmonyLib;
+using System;
 using TaleWorlds.CampaignSystem.Roster;
 using TaleWorlds.Core;
 
@@ -14,7 +15,7 @@ namespace GameInterface.Services.ItemRosters.Patches
         public static ItemRoster itemRoster;
 
         [HarmonyPrefix]
-        [HarmonyPatch(nameof(ItemRoster.AddToCounts))]
+        [HarmonyPatch(nameof(ItemRoster.AddToCounts), new Type[] {typeof(EquipmentElement), typeof(int)})]
         private static bool Prefix(ref ItemRoster __instance, EquipmentElement rosterElement, int number)
         {
             if (AllowedInstance.IsAllowed(rosterElement.Item)) return true;

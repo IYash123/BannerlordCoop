@@ -6,9 +6,6 @@ using Coop.Core.Server.Services.ItemRoster.Messages;
 using GameInterface.Services.ItemRosters.Messages;
 using GameInterface.Services.Misc.Patches;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Coop.Core.Client.Services.ItemRoster.Handlers
 {
